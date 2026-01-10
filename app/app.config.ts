@@ -1,6 +1,6 @@
 export default defineAppConfig({
-  title: 'Sink',
-  email: 'sink.cool@miantiao.me',
+  title: 'MOI QR CODE GENERATOR',
+  email: 'ssurya@invest.gov.ae',
   github: 'https://github.com/miantiao-me/sink',
   twitter: 'https://sink.cool/kai',
   telegram: 'https://sink.cool/telegram',
