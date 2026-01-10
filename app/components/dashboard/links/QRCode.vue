@@ -14,57 +14,95 @@ const props = defineProps({
 })
 const color = ref('#000000')
 const options = {
-  width: 256,
-  height: 256,
-  data: props.data,
-  margin: 10,
-  qrOptions: { typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' },
-  imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 2 },
-  dotsOptions: { type: 'dots', color: '#000000', gradient: null },
-  backgroundOptions: { color: '#ffffff', gradient: null },
-  image: props.image,
-  dotsOptionsHelper: {
-    colorType: { single: true, gradient: false },
-    gradient: {
-      linear: true,
-      radial: false,
-      color1: '#6a1a4c',
-      color2: '#6a1a4c',
-      rotation: '0',
-    },
+  "type": "canvas",
+  "shape": "square",
+  "width": 1200,
+  "height": 1200,
+  "data": props.data,
+  "margin": 10,
+  "qrOptions": {
+    "typeNumber": "0",
+    "mode": "Byte",
+    "errorCorrectionLevel": "Q"
   },
-  cornersSquareOptions: { type: 'extra-rounded', color: '#000000' },
-  cornersSquareOptionsHelper: {
-    colorType: { single: true, gradient: false },
-    gradient: {
-      linear: true,
-      radial: false,
-      color1: '#000000',
-      color2: '#000000',
-      rotation: '0',
-    },
+  "imageOptions": {
+    "saveAsBlob": true,
+    "hideBackgroundDots": false,
+    "imageSize": 0,
+    "margin": 0
   },
-  cornersDotOptions: { type: 'dot', color: '#000000' },
-  cornersDotOptionsHelper: {
-    colorType: { single: true, gradient: false },
-    gradient: {
-      linear: true,
-      radial: false,
-      color1: '#000000',
-      color2: '#000000',
-      rotation: '0',
-    },
+  "dotsOptions": {
+    "type": "extra-rounded",
+    "color": "#142e3f",
+    "roundSize": true
   },
-  backgroundOptionsHelper: {
-    colorType: { single: true, gradient: false },
-    gradient: {
-      linear: true,
-      radial: false,
-      color1: '#ffffff',
-      color2: '#ffffff',
-      rotation: '0',
-    },
+  "backgroundOptions": {
+    "round": 0,
+    "color": 'transparent',
+    "gradient": null
   },
+  "image": "10cc19bd484118dbcd0a7886a38ceddc.png",
+  "dotsOptionsHelper": {
+    "colorType": {
+      "single": true,
+      "gradient": false
+    },
+    "gradient": {
+      "linear": true,
+      "radial": false,
+      "color1": "#6a1a4c",
+      "color2": "#6a1a4c",
+      "rotation": "0"
+    }
+  },
+  "cornersSquareOptions": {
+    "type": "",
+    "color": "#95752c",
+    "gradient": null
+  },
+  "cornersSquareOptionsHelper": {
+    "colorType": {
+      "single": true,
+      "gradient": false
+    },
+    "gradient": {
+      "linear": true,
+      "radial": false,
+      "color1": "#000000",
+      "color2": "#000000",
+      "rotation": "0"
+    }
+  },
+  "cornersDotOptions": {
+    "type": "",
+    "color": "#000000"
+  },
+  "cornersDotOptionsHelper": {
+    "colorType": {
+      "single": true,
+      "gradient": false
+    },
+    "gradient": {
+      "linear": true,
+      "radial": false,
+      "color1": "#000000",
+      "color2": "#000000",
+      "rotation": "0"
+    }
+  },
+  "backgroundOptionsHelper": {
+    "colorType": {
+      "single": true,
+      "gradient": false
+    },
+    "gradient": {
+      "linear": true,
+      "radial": false,
+      "color1": "#ffffff",
+      "color2": "#ffffff",
+      "rotation": "0"
+    }
+  }
 }
 
 const qrCode = new QRCodeStyling(options)
@@ -86,6 +124,14 @@ function downloadQRCode() {
   const slug = props.data.split('/').pop()
   qrCode.download({
     extension: 'png',
+    name: `qr_${slug}`,
+  })
+}
+
+function downloadQRCodeSVG() {
+  const slug = props.data.split('/').pop()
+  qrCode.download({
+    extension: 'svg',
     name: `qr_${slug}`,
   })
 }
@@ -127,7 +173,16 @@ onMounted(() => {
         @click="downloadQRCode"
       >
         <Download class="mr-2 h-4 w-4" />
-        {{ $t('links.download_qr_code') }}
+        {{ $t('links.download_qr_code') }} (PNG)
+      </Button>
+      <br>
+      <Button
+        variant="outline"
+        size="sm"
+        @click="downloadQRCodeSVG"
+      >
+        <Download class="mr-2 h-4 w-4" />
+        {{ $t('links.download_qr_code') }} (SVG)
       </Button>
     </div>
   </div>
