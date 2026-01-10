@@ -14,95 +14,57 @@ const props = defineProps({
 })
 const color = ref('#000000')
 const options = {
-  "type": "canvas",
-  "shape": "square",
-  "width": 1200,
-  "height": 1200,
-  "data": props.data,
-  "margin": 10,
-  "qrOptions": {
-    "typeNumber": "0",
-    "mode": "Byte",
-    "errorCorrectionLevel": "Q"
-  },
-  "imageOptions": {
-    "saveAsBlob": true,
-    "hideBackgroundDots": false,
-    "imageSize": 0,
-    "margin": 0
-  },
-  "dotsOptions": {
-    "type": "extra-rounded",
-    "color": "#142e3f",
-    "roundSize": true
-  },
-  "backgroundOptions": {
-    "round": 0,
-    "color": 'transparent',
-    "gradient": null
-  },
-  "image": "10cc19bd484118dbcd0a7886a38ceddc.png",
-  "dotsOptionsHelper": {
-    "colorType": {
-      "single": true,
-      "gradient": false
+  width: 256,
+  height: 256,
+  data: props.data,
+  margin: 10,
+  qrOptions: { typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' },
+  imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 2 },
+  dotsOptions: { type: 'dots', color: '#142e3f', gradient: null },
+  backgroundOptions: { color: '#ffffff', gradient: null },
+  image: props.image,
+  dotsOptionsHelper: {
+    colorType: { single: true, gradient: false },
+    gradient: {
+      linear: true,
+      radial: false,
+      color1: '#6a1a4c',
+      color2: '#6a1a4c',
+      rotation: '0',
     },
-    "gradient": {
-      "linear": true,
-      "radial": false,
-      "color1": "#6a1a4c",
-      "color2": "#6a1a4c",
-      "rotation": "0"
-    }
   },
-  "cornersSquareOptions": {
-    "type": "",
-    "color": "#95752c",
-    "gradient": null
-  },
-  "cornersSquareOptionsHelper": {
-    "colorType": {
-      "single": true,
-      "gradient": false
+  cornersSquareOptions: { type: 'extra-rounded', color: '#000000' },
+  cornersSquareOptionsHelper: {
+    colorType: { single: true, gradient: false },
+    gradient: {
+      linear: true,
+      radial: false,
+      color1: '#000000',
+      color2: '#000000',
+      rotation: '0',
     },
-    "gradient": {
-      "linear": true,
-      "radial": false,
-      "color1": "#000000",
-      "color2": "#000000",
-      "rotation": "0"
-    }
   },
-  "cornersDotOptions": {
-    "type": "",
-    "color": "#000000"
-  },
-  "cornersDotOptionsHelper": {
-    "colorType": {
-      "single": true,
-      "gradient": false
+  cornersDotOptions: { type: 'dot', color: '#95752c' },
+  cornersDotOptionsHelper: {
+    colorType: { single: true, gradient: false },
+    gradient: {
+      linear: true,
+      radial: false,
+      color1: '#000000',
+      color2: '#000000',
+      rotation: '0',
     },
-    "gradient": {
-      "linear": true,
-      "radial": false,
-      "color1": "#000000",
-      "color2": "#000000",
-      "rotation": "0"
-    }
   },
-  "backgroundOptionsHelper": {
-    "colorType": {
-      "single": true,
-      "gradient": false
+  backgroundOptionsHelper: {
+    colorType: { single: true, gradient: false },
+    gradient: {
+      linear: true,
+      radial: false,
+      color1: '#ffffff',
+      color2: '#ffffff',
+      rotation: '0',
     },
-    "gradient": {
-      "linear": true,
-      "radial": false,
-      "color1": "#ffffff",
-      "color2": "#ffffff",
-      "rotation": "0"
-    }
-  }
+  },
 }
 
 const qrCode = new QRCodeStyling(options)
