@@ -168,7 +168,7 @@
     "expires_at": "Expires At",
     "no_more": "No more links",
     "load_failed": "Loading links failed,",
-    "download_qr_code": "Download QR Code",
+    "download_qr_code": "Download",
     "sort": {
       "newest": "Newest First",
       "oldest": "Oldest First",
