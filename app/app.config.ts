@@ -1,5 +1,5 @@
 export default defineAppConfig({
-  title: 'MOI QR CODE GENERATOR',
+  title: 'Wasl - The Connection',
   email: 'ssurya@invest.gov.ae',
   github: 'https://github.com/miantiao-me/sink',
   twitter: 'https://sink.cool/kai',
