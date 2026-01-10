@@ -13,7 +13,7 @@ const { title, email, telegram, blog, twitter, mastodon, github } = useAppConfig
       "
     >
       <a
-        href="https://sink.cool"
+        href="https://www.invest.gov.ae"
         class="
           text-xl leading-none font-black text-gray-900 select-none
           dark:text-gray-100
