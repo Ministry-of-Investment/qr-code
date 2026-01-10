@@ -20,6 +20,8 @@ const { title, email, telegram, blog, twitter, mastodon, github } = useAppConfig
         "
         :title="title"
       >{{ title }}</a>
+    <!-- 
+      SHOEB EDITED
       <a
         class="
           mt-4 text-sm text-gray-500
@@ -130,6 +132,7 @@ const { title, email, telegram, blog, twitter, mastodon, github } = useAppConfig
           />
         </a>
       </span>
+      -->
     </div>
   </section>
 </template>
