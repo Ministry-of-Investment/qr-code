@@ -19,10 +19,10 @@ const options = {
   data: props.data,
   margin: 10,
   qrOptions: { typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' },
-  imageOptions: { hideBackgroundDots: true, imageSize: 0.4, margin: 2 },
+  imageOptions: { hideBackgroundDots: false, imageSize: 0, margin: 0 },
   dotsOptions: { type: 'dots', color: '#142e3f', gradient: null },
   backgroundOptions: { color: '#ffffff', gradient: null },
-  image: props.image,
+  //image: props.image,
   dotsOptionsHelper: {
     colorType: { single: true, gradient: false },
     gradient: {
