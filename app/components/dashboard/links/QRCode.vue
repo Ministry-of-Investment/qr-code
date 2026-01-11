@@ -21,7 +21,7 @@ const options = {
   qrOptions: { typeNumber: '0', mode: 'Byte', errorCorrectionLevel: 'Q' },
   imageOptions: { hideBackgroundDots: false, imageSize: 0, margin: 0 },
   dotsOptions: { type: 'dots', color: '#142e3f', gradient: null },
-  backgroundOptions: { color: '#ffffff', gradient: null },
+  backgroundOptions: { color: 'transparent', gradient: null },
   //image: props.image,
   dotsOptionsHelper: {
     colorType: { single: true, gradient: false },
@@ -110,8 +110,10 @@ onMounted(() => {
       :data-text="data"
       class="rounded-lg bg-white p-1"
     />
-    <div class="flex items-center gap-4">
-      <div class="relative flex items-center">
+    
+    <div class="flex flex-col items-center gap-3 w-full max-w-[256px]">
+      
+      <div class="relative flex items-center mb-1">
         <div
           class="
             h-8 w-8 cursor-pointer overflow-hidden rounded-full border
@@ -129,23 +131,27 @@ onMounted(() => {
           >
         </div>
       </div>
+
       <Button
         variant="outline"
         size="sm"
+        class="w-full"
         @click="downloadQRCode"
       >
         <Download class="mr-2 h-4 w-4" />
         {{ $t('links.download_qr_code') }} (PNG)
       </Button>
-      <br>
+
       <Button
         variant="outline"
         size="sm"
+        class="w-full"
         @click="downloadQRCodeSVG"
       >
         <Download class="mr-2 h-4 w-4" />
         {{ $t('links.download_qr_code') }} (SVG)
       </Button>
+      
     </div>
   </div>
 </template>
